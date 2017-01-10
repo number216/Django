@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+Hello {% if request.user.is_authenticated %}
+        {% if request.user.first_name != '' %}
+            {{request.user.first_name}}
+        {% else %}
+            {{request.user.username}}
+        {% endif %}
+      {% endif %}!
+</body>
+</html>

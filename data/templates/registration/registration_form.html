@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block body %}
+
+<div class="col-md-6 col-md-offset-3">
+<div class="panel panel-info">
+    <div class="panel-heading">Zaloguj się</div>
+    <div class="panel-body">
+
+<form method="post" action=".">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="login-username">Username</label>
+    <input id="login-username" type="username" class="form-control" name="username" placeholder="Username">
+  </div>
+  <div class="form-group">
+    <label for="login-username">E-mail</label>
+    <input id="login-email" type="email" class="form-control" name="email" placeholder="E-mail">
+  </div>
+  <div class="form-group">
+    <label for="login-password">Password</label>
+    <input id="login-password" type="password" class="form-control" name="password1" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="confirm">Password</label>
+    <input id="confirm" type="password" class="form-control" name="password2" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+</div>
+</div>
+</div>
+<!--<form method="post" action=".">-->
+  <!--{% csrf_token %}-->
+  <!--{{ form.as_p }}-->
+
+  <!--<input type="submit" value="{% trans 'Submit' %}" />-->
+<!--</form>-->
+{% endblock %}

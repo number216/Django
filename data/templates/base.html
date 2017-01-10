@@ -1,0 +1,66 @@
+{% extends 'bootstrap3/bootstrap3.html'%}
+
+{% load staticfiles %}
+
+{% load bootstrap3 %}
+
+{% load bootstrap_themes %}
+
+{% bootstrap_styles theme='simplex' type='min.css' %}
+
+{% block bootstrap3_extra_head %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href="{% static 'base/css/style.css'%}" rel="stylesheet">
+{% endblock %}
+
+{% block bootstrap3_title %}
+    {% block title %}
+        Witam na stronie!
+    {% endblock %}
+{% endblock %}
+
+{% block bootstrap3_content %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><span style="padding:15px; display:block; color: white">
+            {% if user.is_authenticated %}
+            Witaj, {% if user.first_name %}
+                {{ user.first_name }}
+            {% else %}
+                {{ user.username }}
+            {% endif %}!</span></li>
+          {% else %}
+          <li><span style="padding:15px; display:block; color: white">Witaj nieznajomy!</span></li>
+          <li><a href="{% url 'auth_login' %}">Zaloguj się</a></li>
+          <li><a href="{% url 'registration_register' %}">Zarejestruj się</a></li>
+            {% endif %}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid">
+    {% block body %}
+    {% endblock %}
+</div>
+
+{% endblock %}

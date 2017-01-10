@@ -1,0 +1,13 @@
+nav.navbar{
+border-radius: 0;
+}
+
+.btn-google, .btn-trello, .btn-google:hover, .btn-trello:hover{
+padding: 10px;
+color: white;
+border:none;
+margin-bottom: 20px;
+font-size: 1.3em;
+border-radiux: 6px;
+background-color: #0000FF;
+}
