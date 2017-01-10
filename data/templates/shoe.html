@@ -2,6 +2,12 @@
 
 {% block body %}
 
+<style>
+.shoe-picture{
+width: 100%;
+}
+
+</style>
 <div class="row">
   {% for shoe in shoes %}
   <div class="col-sm-6 col-md-4">
@@ -9,8 +15,9 @@
     <div class="thumbnail">
       <!--<img src="..." alt="...">-->
       <div class="caption">
-        <h3>{{shoe.brand}}</h3>
-        <p>{{shoe.name}}</p>
+        <h3>{{shoe.brand_model}}</h3>
+        {% load static %}
+        <img class="shoe-picture" src={{shoe.picture.url}} />
         <p>Opis: {{shoe.description}}</p>
         <p>Cena: {{shoe.price}}</p>
         <p>Rozmiar: {{shoe.size}}</p>

@@ -6,7 +6,7 @@ class AuthorAdmin(admin.ModelAdmin):
 admin.site.register(Book, AuthorAdmin)
 
 class ShoesAdmin(admin.ModelAdmin):
-    list_display = ('brand', 'name', 'description', 'size', 'price')
+    list_display = ('brand_model', 'picture', 'description', 'size', 'price')
 admin.site.register(Shoe, ShoesAdmin)
 
 class NoteAdmin(admin.ModelAdmin):

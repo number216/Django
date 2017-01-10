@@ -101,6 +101,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'social.apps.django_app.context_processors.backends',
                 'social.apps.django_app.context_processors.login_redirect',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -143,3 +144,7 @@ EMAIL_HOST = 'mailtrap.io'
 EMAIL_HOST_USER = '5ba0e6cfb3d6a7'
 EMAIL_HOST_PASSWORD = '6fdc27fa67125a'
 EMAIL_PORT = '465'
+
+
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
+MEDIA_URL = '/media/'

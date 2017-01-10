@@ -3,6 +3,8 @@ from django.contrib import admin
 from store import views as store
 from data import views
 from rest_framework import routers
+from django.conf.urls.static import static
+from django.conf import settings
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -28,4 +30,4 @@ urlpatterns = [
     url('', include('social.apps.django_app.urls', namespace='social')),
     url(r'^api_auth/', include('rest_framework.urls', namespace='rest_framework'))
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
