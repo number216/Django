@@ -15,7 +15,8 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', store.home, name='home'),
+    url(r'^$', views.note, name='note'),
+    url(r'^shoes', views.shoe, name='shoe'),
     url(r'^api/', include(router.urls)),
     #url(r'store/', store.store, name='store'),
     #url(r'store/', data.store, name='store'),

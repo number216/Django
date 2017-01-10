@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Book(models.Model):
@@ -17,3 +18,9 @@ class Shoe(models.Model):
     description = models.TextField(default=0)
     size = models.IntegerField(max_length=2, default=0)
     price = models.DecimalField(max_digits=6, decimal_places=2, default=0)
+
+class Note(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.ForeignKey(User, null=True, blank=True)
+    body = models.TextField(default=0)
+    publish_date = models.DateField(default=timezone.now)

@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+
+{% block body %}
+
+<div class="row">
+  {% for note in notes %}
+  <div class="col-md-8 col-md-offset-2">
+
+    <div class="thumbnail">
+      <!--<img src="..." alt="...">-->
+      <div class="caption">
+        <h3>{{note.title}}</h3>
+        <p>Autor: {{note.author}}</p>
+        <p>{{note.body}}</p>
+        <p>Opublikowano: {{note.publish_date}}</p>
+      </div>
+    </div>
+   </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

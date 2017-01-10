@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from data.models import Book
+from data.models import Book, Shoe, Note
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
@@ -26,6 +26,18 @@ def data(request):
         'BookCount' : Book.objects.count,
         'books' : Book.objects.all()}
     return render(request, 'data.html', context)
+
+def shoe(request):
+    context = {
+        'ShoeCount' : Shoe.objects.count,
+        'shoes' : Shoe.objects.all()}
+    return render(request, 'shoe.html', context)
+
+def note(request):
+    context = {
+        'NoteCount' : Note.objects.count,
+        'notes' : Note.objects.all()}
+    return render(request, 'note.html', context)
 
 def myname(request):
     context = {
