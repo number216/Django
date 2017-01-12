@@ -20,7 +20,7 @@
 {% endblock %}
 
 {% block bootstrap3_content %}
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -37,7 +37,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="{% url 'shoe' %}">Buty <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+        <li><a href="{% url 'contact' %}">Kontakt</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -50,15 +50,15 @@
             {% endif %}!</span></li>
           {% else %}
           <li><span style="padding:15px; display:block; color: white">Witaj nieznajomy!</span></li>
-          <li><a href="{% url 'auth_login' %}">Zaloguj się</a></li>
-          <li><a href="{% url 'registration_register' %}">Zarejestruj się</a></li>
+          <li><a href="{% url 'auth_login' %}"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
+          <li><a href="{% url 'registration_register' %}"><span class="glyphicon glyphicon-user"></span> Zarejestruj się</a></li>
             {% endif %}
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid site-body">
     {% block body %}
     {% endblock %}
 </div>

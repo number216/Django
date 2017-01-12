@@ -140,11 +140,22 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-EMAIL_HOST = 'mailtrap.io'
-EMAIL_HOST_USER = '5ba0e6cfb3d6a7'
-EMAIL_HOST_PASSWORD = '6fdc27fa67125a'
-EMAIL_PORT = '465'
+
+EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+EMAIL_PORT = 1025
+
+#EMAIL_HOST = 'mailtrap.io'
+#EMAIL_HOST_USER = '5ba0e6cfb3d6a7'
+#EMAIL_HOST_PASSWORD = '6fdc27fa67125a'
+#EMAIL_PORT = '465'
 
 
 MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
 MEDIA_URL = '/media/'
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_AGE = 600
+SESSION_SAVE_EVERY_REQUEST = True

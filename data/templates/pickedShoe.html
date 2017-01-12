@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+
+{% block body %}
+
+<style>
+.shoe-picture{
+width: 100%;
+}
+
+</style>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+
+    <div class="thumbnail">
+      <!--<img src="..." alt="...">-->
+      <div class="caption">
+        <h3>{{shoe.brand_model}}</h3>
+        {% load static %}
+        <img class="shoe-picture" src={{shoe.picture.url}} />
+        <p><b>Opis:</b>  {{shoe.description}}</p>
+        <p><b>Cena:</b> {{shoe.price}}</p>
+        <label for="sel1">Rozmiar:</label>
+          <select class="form-control" id="sel1">
+            {% for size in sizes %}
+                <option>{{size.size}}</option>
+            {% endfor %}
+          </select>
+        <p><a href="{% url 'pickedShoe' shoe.id %}" class="btn btn-primary" role="button">Kup</a></p>
+      </div>
+    </div>
+   </div>
+</div>
+
+{% endblock %}
+
