@@ -7,29 +7,40 @@
 width: 100%;
 }
 
+.btn{
+margin-top: 10px;
+}
+
 </style>
 <div class="row">
   <div class="col-sm-6 col-md-4">
 
     <div class="thumbnail">
-      <!--<img src="..." alt="...">-->
-      <div class="caption">
-        <h3>{{shoe.brand_model}}</h3>
-        {% load static %}
-        <img class="shoe-picture" src={{shoe.picture.url}} />
-        <p><b>Opis:</b>  {{shoe.description}}</p>
+      {% load static %}
+      <img class="shoe-picture" src={{shoe.picture.url}} />
+
+    </div>
+   </div>
+   <div class="col-sm-6 col-md-4">
+     <div class="caption">
+        <h1>{{shoe.brand_model}}</h1>
+
         <p><b>Cena:</b> {{shoe.price}}</p>
+        <form method = "post" action = "{% url 'add_to_cart' shoe.id 1 %}">
+        {% csrf_token %}
         <label for="sel1">Rozmiar:</label>
-          <select class="form-control" id="sel1">
+          <select class="form-control" id="sel1" name="selectedSize">
             {% for size in sizes %}
                 <option>{{size.size}}</option>
             {% endfor %}
           </select>
-        <p><a href="{% url 'pickedShoe' shoe.id %}" class="btn btn-primary" role="button">Kup</a></p>
+        <input class="btn btn-primary" type = "submit" value="Dodaj do koszyka">
+        </form>
       </div>
-    </div>
    </div>
 </div>
+
+<p><b>Opis:</b>  {{shoe.description}}</p>
 
 {% endblock %}
 

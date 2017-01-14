@@ -33,8 +33,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = (
     'bootstrap3',
     'bootstrap_themes',
-    'store',
     'data',
+    'cart',
     'django.contrib.admin',
     'registration',
     'django.contrib.auth',

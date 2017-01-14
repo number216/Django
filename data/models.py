@@ -20,7 +20,6 @@ class Shoe(models.Model):
     brand_model = models.CharField(max_length=200)
     picture = models.ImageField(upload_to='photos', blank=True, null=True)
     description = models.TextField(default=0)
-    #size = models.IntegerField(max_length=2, default=0)
     price = models.DecimalField(max_digits=6, decimal_places=2, default=0)
     def __str__(self):
         return(self.brand_model)

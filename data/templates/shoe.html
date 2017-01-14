@@ -13,14 +13,12 @@ width: 100%;
   <div class="col-sm-6 col-md-4">
 
     <div class="thumbnail">
-      <!--<img src="..." alt="...">-->
+      {% load static %}
+      <a href="{% url 'pickedShoe' shoe.id %}">
+        <img class="shoe-picture" src={{shoe.picture.url}} />
+      </a>
       <div class="caption">
         <h3>{{shoe.brand_model}}</h3>
-        {% load static %}
-        <a href="{% url 'pickedShoe' shoe.id %}">
-        <img class="shoe-picture" src={{shoe.picture.url}} />
-        </a>
-        <p>Opis: {{shoe.description}}</p>
         <p>Cena: {{shoe.price}}</p>
       </div>
     </div>

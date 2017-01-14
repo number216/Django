@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block body %}
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Produkt</th>
+                <th>Rozmiar</th>
+                <th>Ilość</th>
+                <th>Cena</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart %}
+            <tr>
+                <td class="col-md-2">{{ item.product.brand_model }}</td>
+                <td class="col-md-2">{{ item.size }}</td>
+                <td class="col-md-2">{{ item.quantity }}</td>
+                <td class="col-md-2">{{ item.total_price }}</td>
+                <td class="col-md-1"><a class="btn btn-primary" href="{% url 'remove_from_cart' item.product.brand_model item.size %}">Usuń z koszyka</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Total: {{ cart.summary }}</h2>
+    <a class="btn btn-primary" href="{% url 'shoe'  %}">Kontunuuj zakupy</a>
+    <a class="btn btn-primary" href="{% url 'pay'  %}">Płacę</a>
+</div>
+{% endblock %}

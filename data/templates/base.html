@@ -41,13 +41,15 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><span style="padding:15px; display:block; color: white">
+        <li><span style="padding:15px; display:block; color: black">
             {% if user.is_authenticated %}
             Witaj, {% if user.first_name %}
                 {{ user.first_name }}
             {% else %}
                 {{ user.username }}
             {% endif %}!</span></li>
+          <li><a href="{% url 'cart' %}"><span class="glyphicon glyphicon-shopping-cart"></span> Koszyk</a></li>
+          <li><a href="{% url 'auth_logout' %}"><span class="glyphicon glyphicon-log-out"></span> Wyloguj się</a></li>
           {% else %}
           <li><span style="padding:15px; display:block; color: white">Witaj nieznajomy!</span></li>
           <li><a href="{% url 'auth_login' %}"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
