@@ -1,10 +1,6 @@
 from django.contrib import admin
 from data.models import Book, Shoe, Note, Size
 
-class AuthorAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'publish_date', 'price', 'stock', 'year')
-admin.site.register(Book, AuthorAdmin)
-
 class ShoesAdmin(admin.ModelAdmin):
     list_display = ('brand_model', 'picture', 'description', 'price')
 admin.site.register(Shoe, ShoesAdmin)

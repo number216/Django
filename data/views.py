@@ -83,7 +83,7 @@ def data(request):
 def shoe(request):
     context = {
         'ShoeCount' : Shoe.objects.count,
-        'shoes' : Shoe.objects.all()}
+        'shoes' : Shoe.objects.all().filter(blocked = False)}
     return render(request, 'shoe.html', context)
 
 

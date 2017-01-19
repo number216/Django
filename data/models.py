@@ -21,6 +21,7 @@ class Shoe(models.Model):
     picture = models.ImageField(upload_to='photos', blank=True, null=True)
     description = models.TextField(default=0)
     price = models.DecimalField(max_digits=6, decimal_places=2, default=0)
+    blocked = models.BooleanField(default=False)
     def __str__(self):
         return(self.brand_model)
 

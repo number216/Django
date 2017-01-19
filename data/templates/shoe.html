@@ -4,19 +4,24 @@
 
 <style>
 .shoe-picture{
-width: 100%;
-}
+    width:100%;}
 
+.imageclass{
+    min-height: 200px;
+    }
 </style>
+
 <div class="row">
   {% for shoe in shoes %}
-  <div class="col-sm-6 col-md-4">
+  <div class="col-sm-3 col-md-3">
 
     <div class="thumbnail">
       {% load static %}
+      <div class="imageclass">
       <a href="{% url 'pickedShoe' shoe.id %}">
         <img class="shoe-picture" src={{shoe.picture.url}} />
       </a>
+      </div>
       <div class="caption">
         <h3>{{shoe.brand_model}}</h3>
         <p>Cena: {{shoe.price}}</p>
